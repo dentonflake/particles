@@ -13,10 +13,6 @@ let canvas = new Canvas(
     }
 );
 
-let myCircle = new Circle(
-    new Vector2D(450, 300),
-    50
-);
 
 function loop() {
     // Drawing the canvas
