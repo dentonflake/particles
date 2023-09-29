@@ -19,21 +19,33 @@ let mouse = new Mouse();
 function loop() {
     canvas.rect(
         canvas.collider,
-        new Color(25, 25, 25)
+        new Color(0, 0, 0)
     )
 
     if (mouse.active) {
         mouse.particles.push(
             new Particle(
                 new Circle(
-                    mouse.pos,
-                    10
+                    new Vector2D(
+                        mouse.pos.x,
+                        mouse.pos.y
+                    ),
+                    3
                 ),
-                new Vector2D(0, 0),
-                new Color(100, 100, 255)
+                new Vector2D(
+                    Math.random() * 1 - 0.5,
+                    Math.random() * 1 - 0.5
+                ),
+                100
             )
         )
     }
+
+    for (let particle of mouse.particles) {
+        particle.tick()
+    }
+
+    mouse.tick();
 
     requestAnimationFrame(loop)
 }
@@ -47,10 +59,10 @@ addEventListener('mousedown', (event) => {
 })
 
 addEventListener('mousemove', (event) => {
-    mouse.pos = {
-        x: event.clientX,
-        y: event.clientY
-    }
+    mouse.pos = new Vector2D(
+        event.clientX,
+        event.clientY
+    )
 })
 
 addEventListener('mouseup', (event) => {
