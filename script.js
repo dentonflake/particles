@@ -1,3 +1,4 @@
+// CANVAS OBJECT
 let canvas = new Canvas(
     {
         collider: new Rect(
@@ -11,9 +12,10 @@ let canvas = new Canvas(
     }
 )
 
+// MOUSE OBJECT
 let mouse = new Mouse();
 
-// loop
+// LOOP FUNCTION
 function loop() {
     canvas.rect(
         canvas.collider,
@@ -36,9 +38,10 @@ function loop() {
     requestAnimationFrame(loop)
 }
 
+// CALLING LOOP FUNCTION
 loop()
 
-// event listeners
+// EVENT LISTENERS
 addEventListener('mousedown', (event) => {
     mouse.active = true
 })
