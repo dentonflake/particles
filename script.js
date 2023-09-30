@@ -7,7 +7,7 @@ let canvas = new Canvas(
                 0
             ),
             innerWidth,
-            innerHeight
+            innerHeight,
         )
     }
 )
